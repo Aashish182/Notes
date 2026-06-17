@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-bg text-gray-100 antialiased;
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: theme('colors.bg'); }
+  ::-webkit-scrollbar-thumb { background: theme('colors.border'); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: theme('colors.primary.DEFAULT'); }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-primary text-white hover:bg-primary-hover hover:-translate-y-0.5;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-muted border border-border hover:bg-surface2 hover:text-gray-100;
+  }
+  .btn-danger {
+    @apply btn bg-transparent text-accent border border-accent hover:bg-accent hover:text-white;
+  }
+  .btn-sm {
+    @apply px-3 py-1.5 text-xs;
+  }
+
+  .form-input {
+    @apply w-full bg-bg border border-border rounded-lg text-gray-100 text-sm outline-none p-3 transition-colors focus:border-primary placeholder:text-muted;
+  }
+  .form-input.error {
+    @apply border-accent;
+  }
+  .form-textarea {
+    @apply form-input resize-y min-h-[140px] leading-relaxed;
+  }
+  .form-label {
+    @apply text-sm font-medium text-muted;
+  }
+  .form-error {
+    @apply text-xs text-accent;
+  }
+
+  .card-tag {
+    @apply px-2 py-0.5 rounded-full text-xs bg-surface2 text-muted border border-border;
+  }
+}
